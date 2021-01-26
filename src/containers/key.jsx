@@ -8,9 +8,8 @@ class Key extends Component {
     handleClick = () => {
         var context = new (window.AudioContext || window.webkitAudioContext)();
         let note = new Sound(context);
-        let waveform = this.props.waveform;
         let now = context.currentTime;
-        note.play(this.props.frequency, waveform, now);
+        note.play(this.props.frequency, this.props.waveform, now);
        
     }
     
