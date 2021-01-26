@@ -5,3 +5,45 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.keyboard {
+  display: flex;
+
+}
+
+.key {
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+.white {
+  --width: 5vw;
+  background-color: white;
+  border: 1px solid #333;
+}
+
+.white.active {
+  background-color: #CCC;
+}
+
+.black {
+  --width: 3.125vw;
+  background-color: black;
+  border: 1px solid #333;
+  margin-right: calc(var(--width) / -2);
+  margin-left: calc(var(--width) / -2);
+  z-index: 2;
+
+}
+
+.black.active {
+  background-color: #333;
+}
+
+@media screen and (max-width: 1025px) {
+  .white {
+      --width: 8vw;
+  }
+  .black {
+      --width: 5vw;
+  }
+} 

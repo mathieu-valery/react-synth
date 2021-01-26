@@ -1,9 +1,12 @@
 import React from 'react';
+import Keyboard from '../containers/keyboard.jsx'
+import keys from './keys'
 
 const App = () => {
   return (
+    
     <div className="app">
-      <p>React + Redux starter</p>
+      <Keyboard keys={keys} />
     </div>
   );
 };
