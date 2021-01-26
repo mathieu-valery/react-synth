@@ -1,12 +1,14 @@
 import React from 'react';
-import Keyboard from '../containers/keyboard.jsx'
-import keys from './keys'
+import Keyboard from '../containers/keyboard.jsx';
+import Buttons from '../containers/buttons.jsx';
+import keys from './keys';
 
 const App = () => {
   return (
     
     <div className="app">
       <Keyboard keys={keys} />
+      <Buttons/>
     </div>
   );
 };

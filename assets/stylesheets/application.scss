@@ -39,6 +39,20 @@ body {
   background-color: #333;
 }
 
+.buttons {
+  display: flex;
+}
+.button {
+  padding: 5vw;
+  background-color: black;
+  color: white;
+  width: 20vw;
+  margin: 1vw;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
 @media screen and (max-width: 1025px) {
   .white {
       --width: 8vw;

@@ -9,8 +9,10 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
 // State and reducers
+import waveformReducer from './reducers/waveform_reducer';
+
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  waveform: waveformReducer
 });
 
 // render an instance of the component in the DOM

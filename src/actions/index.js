@@ -1,1 +1,7 @@
-// TODO: add and export your own actions
+export function setWaveform(waveform) {
+    
+  return {
+    type: 'SET_WAVEFORM', 
+    payload: waveform
+    } 
+}
