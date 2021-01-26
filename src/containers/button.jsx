@@ -6,11 +6,10 @@ import { setWaveform } from '../actions';
 class Button extends Component {
     handleClick = () => {
         this.props.setWaveform(this.props.name);
-        let DOMElements = document.querySelectorAll(".button");
-        DOMElements.forEach(DOMElement => (DOMElement.classList.remove("active")));
-        let DOMElement = document.getElementById(this.props.name);
-        DOMElement.classList.add("active");
-
+        let buttons = document.querySelectorAll(".button");
+        buttons.forEach(DOMElement => (DOMElement.classList.remove("active")));
+        let buttonClicked = document.getElementById(this.props.name);
+        buttonClicked.classList.add("active");
 }
     
     render() {
