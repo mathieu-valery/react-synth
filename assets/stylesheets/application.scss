@@ -42,6 +42,7 @@ body {
 .buttons {
   display: flex;
 }
+
 .button {
   padding: 5vw;
   background-color: black;
@@ -52,6 +53,9 @@ body {
   border-radius: 10px;
 }
 
+.button.active {
+  border: 5px solid red;
+}
 
 @media screen and (max-width: 1025px) {
   .white {
