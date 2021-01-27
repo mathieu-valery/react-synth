@@ -10,17 +10,19 @@ class Key extends Component {
         let note = new Sound(context);
         let frequency = this.props.frequency;
         let waveform = this.props.waveform;
-        let now = context.currentTime;
         let cutoff = this.props.cutoff;
-        
-        
+        let now = context.currentTime;
+
         note.play(frequency, waveform, cutoff, now);
-       
+
+        let clickedNote = document.getElementById(this.props.note)
+        clickedNote.classList.add('active');
+        setTimeout(function(){clickedNote.classList.remove('active');}, 500);
     }
     
     render() {
         return(
-            <div className={`${'key'} ${this.props.color}`} key={this.props.note} onClick={this.handleClick}></div>
+            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick}></div>
         )
     }
 }
