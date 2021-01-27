@@ -5,3 +5,10 @@ export function setWaveform(waveform) {
     payload: waveform
     } 
 }
+
+export function setCutoff(cutoff) {    
+  return {
+    type: 'SET_CUTOFF', 
+    payload: cutoff
+    } 
+}

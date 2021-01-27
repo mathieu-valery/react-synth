@@ -57,6 +57,11 @@ body {
   border: 5px solid red;
 }
 
+.filter {
+  width: 20vw;
+  padding: 20px 0px 20px 0px;
+}
+
 @media screen and (max-width: 1025px) {
   .white {
       --width: 8vw;

@@ -8,8 +8,13 @@ class Key extends Component {
     handleClick = () => {
         var context = new (window.AudioContext || window.webkitAudioContext)();
         let note = new Sound(context);
+        let frequency = this.props.frequency;
+        let waveform = this.props.waveform;
         let now = context.currentTime;
-        note.play(this.props.frequency, this.props.waveform, now);
+        let cutoff = this.props.cutoff;
+        
+        
+        note.play(frequency, waveform, cutoff, now);
        
     }
     
@@ -22,7 +27,8 @@ class Key extends Component {
 
 function mapStateToProps(state) { 
     return {
-        waveform: state.waveform 
+        waveform: state.waveform,
+        cutoff: state.cutoff 
     };
 };
 
