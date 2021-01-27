@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setWaveform } from '../actions';
 
-class Button extends Component {
+class WaveformButton extends Component {
     handleClick = () => {
         this.props.setWaveform(this.props.name);
         let buttons = document.querySelectorAll(".button");
@@ -32,5 +32,5 @@ function mapStateToProps(state) {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Button);
+export default connect(mapStateToProps, mapDispatchToProps)(WaveformButton);
 

@@ -8,15 +8,15 @@ class Sound {
       this.oscillator = this.context.createOscillator();
       this.gainNode = this.context.createGain();
       this.lowPass = this.context.createBiquadFilter();
+      //réglages lowPassFilter
+      this.lowPass.type = "lowpass";
+      this.lowPass.Q.value = 0.7;
+      
       this.oscillator.connect(this.lowPass)
       this.lowPass.connect(this.gainNode);
       this.gainNode.connect(this.context.destination);
 
-      //réglages par défault
-      this.oscillator.type = 'sine';
-      this.lowPass.type = "lowpass";
-      this.lowPass.frequency.value = 4000;
-      this.lowPass.Q.value = 0.7;
+ 
     }
   
     play(value, waveform, cutoff, time) {
