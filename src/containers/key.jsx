@@ -6,15 +6,16 @@ import Sound from '../sound.js';
 
 class Key extends Component {
     handleClick = () => {
-        var context = new (window.AudioContext || window.webkitAudioContext)();
-        let note = new Sound(context);
+        // recuperer le canvas depuis le store (passé en props)
+        let note = new Sound(this.props.context, this.props.canvas);
+        
         let frequency = this.props.frequency;
         let waveform = this.props.waveform;
         let cutoff = this.props.cutoff;
-        let now = context.currentTime;
+        let now = this.props.context.currentTime;
 
         note.play(frequency, waveform, cutoff, now);
-
+        
         let clickedNote = document.getElementById(this.props.note)
         clickedNote.classList.add('active');
         setTimeout(function(){clickedNote.classList.remove('active');}, 500);
@@ -30,7 +31,8 @@ class Key extends Component {
 function mapStateToProps(state) { 
     return {
         waveform: state.waveform,
-        cutoff: state.cutoff 
+        cutoff: state.cutoff,
+        canvas: state.canvas 
     };
 };
 

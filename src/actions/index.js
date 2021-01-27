@@ -6,9 +6,18 @@ export function setWaveform(waveform) {
     } 
 }
 
-export function setCutoff(cutoff) {    
+export function setCutoff(cutoff) {  
+
   return {
     type: 'SET_CUTOFF', 
     payload: cutoff
+    } 
+}
+
+export function setCanvas(canvas) {  
+  
+  return {
+    type: 'SET_CANVAS', 
+    payload: canvas
     } 
 }
