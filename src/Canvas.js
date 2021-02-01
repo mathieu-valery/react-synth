@@ -1,27 +1,61 @@
 export default class Canvas {
     constructor() {
-        this.noteValue = null
+        this.tableauDonnees = null
+        this.analyser = null
+    }
+
+    init(analyser, tableauDonnees) {
+        this.analyser = analyser
+        this.tableauDonnees = tableauDonnees
+
+        this.canvas = document.getElementById('canvas');
+        this.contexteCanvas = canvas.getContext('2d');
+
+        this.WIDTH = this.canvas.width;
+        this.HEIGHT = this.canvas.height;
+
+        if (this.rafID) window.cancelAnimationFrame(this.rafID)
         this.render()
+
     }
 
-    update(noteValue) {
-        this.noteValue = noteValue
+    randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    render() {
-        console.log(this.noteValue)
+    render(delta) {
+        this.rafID = requestAnimationFrame(this.render.bind(this))
 
-        let canvas = document.getElementById('canvas');
-        // this.WIDTH = this.canvas.width;
-        // this.HEIGHT = this.canvas.height;
-        let contexteCanvas = canvas.getContext('2d');
-        let red = this.noteValue - 250;
-        contexteCanvas.fillStyle = 'rgb(' + red + ', 0, 0)';
-        contexteCanvas.fillRect(0, 0, 300, 300);
+        this.analyser.getFloatTimeDomainData(this.tableauDonnees)
 
+      
+        this.contexteCanvas.fillStyle = `rgb(200, 200, 200)`;
 
-        requestAnimationFrame(() => {
-            this.render()
-        })
+        this.contexteCanvas.fillRect(0, 0, this.WIDTH, this.HEIGHT);
+        this.contexteCanvas.lineWidth = 2;
+        this.contexteCanvas.strokeStyle = `rgb(0,0,0)`;
+
+        this.contexteCanvas.beginPath();
+
+        var largeurSegment = this.WIDTH * 1.0 / this.analyser.fftSize;
+        var x = 0;
+
+        for (var i = 0; i < this.analyser.fftSize; i++) {
+
+            var v = this.tableauDonnees[i] * 200;
+            var y = v + this.HEIGHT / 2;
+
+            if (i === 0) {
+                this.contexteCanvas.moveTo(x, y);
+            } else {
+                this.contexteCanvas.lineTo(x, y);
+            }
+
+            x += largeurSegment;
+        }
+
+        this.contexteCanvas.lineTo(this.canvas.width, this.canvas.height / 2);
+        this.contexteCanvas.stroke();
+
     }
 }

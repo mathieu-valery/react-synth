@@ -18,6 +18,13 @@ class Canva extends Component {
     componentDidMount() {
         const canvas = new Canvas()
         this.props.setCanvas(canvas);
+
+        // this.canvas = document.getElementById('canvas');
+
+        // this.WIDTH = this.canvas.width;
+        // this.HEIGHT = this.canvas.height;
+        // this.contexteCanvas = canvas.getContext('2d');
+
     }
 }
 

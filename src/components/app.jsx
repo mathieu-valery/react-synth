@@ -6,6 +6,7 @@ import Canva from '../containers/canva.jsx';
 import keys from './keys';
 
 
+
 const App = () => {
   return (
     
@@ -14,6 +15,7 @@ const App = () => {
       <Canva/>
       <LowPassFilter/>
       <WaveformButtons/>
+    
     </div>
   );
 };
