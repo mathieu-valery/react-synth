@@ -21,3 +21,11 @@ export function setCanvas(canvas) {
     payload: canvas
     } 
 }
+
+export function setEnvelope(attack, decay, sustain, release) {  
+  
+  return {
+    type: 'SET_ENVELOPE', 
+    payload: {attack: Number(attack), decay: Number(decay), sustain: Number(sustain), release: Number(release) }
+    } 
+}

@@ -12,13 +12,17 @@ class Key extends Component {
         let frequency = this.props.frequency;
         let waveform = this.props.waveform;
         let cutoff = this.props.cutoff;
-        let now = this.props.context.currentTime;
+        let envelope = this.props.envelope;
+        
 
-        note.play(frequency, waveform, cutoff, now);
+        note.play(frequency, waveform, cutoff, envelope);
+        
 
         let clickedNote = document.getElementById(this.props.note)
         clickedNote.classList.add('active');
-        setTimeout(function(){clickedNote.classList.remove('active');}, 500);
+        setTimeout(function(){
+            clickedNote.classList.remove('active');
+            note.stop()}, 500);
     }
 
     render() {
@@ -32,7 +36,8 @@ function mapStateToProps(state) {
     return {
         waveform: state.waveform,
         cutoff: state.cutoff,
-        canvas: state.canvas 
+        canvas: state.canvas,
+        envelope: state.envelope 
     };
 };
 
