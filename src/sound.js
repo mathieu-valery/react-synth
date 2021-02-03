@@ -47,7 +47,7 @@ class Sound {
         this.lowPass.frequency.value = cutoff;
        
         this.oscillator.start();
- 
+
         this.gainNode.gain.cancelScheduledValues(currentTime);
         this.gainNode.gain.setValueAtTime(0, currentTime + this.easing);
         this.gainNode.gain.linearRampToValueAtTime(1, currentTime + this.envelope.attack + this.easing);
@@ -63,12 +63,12 @@ class Sound {
       //RECHERCHE d'ALTERNATIVE
       // this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, currentTime);
       // this.gainNode.gain.cancelScheduledValues(currentTime);
-
+      
       this.gainNode.gain.setTargetAtTime(0, currentTime, this.envelope.release + this.easing)
     
       setTimeout(() => {
         this.oscillator.disconnect();
-      }, 10000)
+      }, 5000)
       
     }
 }

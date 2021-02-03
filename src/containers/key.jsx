@@ -25,11 +25,14 @@ class Key extends Component {
             note.stop()}, 500);
     }
 
+
     render() {
         return(
-            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick}></div>
+            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}></div>
         )
     }
+
+
 }
 
 function mapStateToProps(state) { 
