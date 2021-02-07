@@ -15,18 +15,28 @@ class ADSR extends Component {
     
     render() {
         return(
-            <div className="filter ADSR">
-                <label htmlFor="attack">Attack</label>
-                <input type="range" id="attack" name="attack" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+            <div className="ADSR">
+             
+                <div className="envelope-range">
+                    <input className="vertical" type="range" id="attack" name="attack" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+                    <label htmlFor="attack">Attack</label>
+                </div>
 
-                <label htmlFor="decay">Decay</label>
-                <input type="range" id="decay" name="decay" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                <div className="envelope-range">
+                    <input className="vertical" type="range" id="decay" name="decay" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                    <label htmlFor="decay">Decay</label>
+                </div>
 
-                <label htmlFor="sustain">Sustain</label>
-                <input type="range" id="sustain" name="sustain" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                <div className="envelope-range">
+                    <input className="vertical" type="range" id="sustain" name="sustain" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                    <label htmlFor="sustain">Sustain</label>
+                </div>
 
-                <label htmlFor="release">Release</label>
-                <input type="range" id="release" name="release" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+                <div className="envelope-range">
+                    <input className="vertical" type="range" id="release" name="release" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+                    <label htmlFor="release">Release</label>
+                </div>
+               
             </div>
         )
     }

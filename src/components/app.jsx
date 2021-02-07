@@ -12,11 +12,17 @@ const App = () => {
   return (
     
     <div className="app">
+      <h1>🎶 Amazing Synthetiser 🎶</h1>
+      <div className="controls">
+        <WaveformButtons/>
+        <LowPassFilter/>
+        <ADSR/>
+      </div>
       <Keyboard keys={keys} />
       <Canva/>
-      <LowPassFilter/>
-      <ADSR/>
-      <WaveformButtons/>
+      
+      
+      
     
     </div>
   );

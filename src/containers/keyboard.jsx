@@ -6,17 +6,17 @@ import Sound from '../sound.js';
 class Keyboard extends Component {
     
     render() {
-        this.context = new (window.AudioContext || window.webkitAudioContext)();
         
         return(
             <div className='keyboard'>
-                {this.props.keys.map(({ note, color, frequency, key }) => <Key context={this.context} note={note} color={color} frequency={frequency} key={key} />)}
+                {this.props.keys.map(({ note, color, frequency, key }) => <Key  note={note} color={color} frequency={frequency} key={key} />)}
             </div>
         )
     }
 
     componentDidMount() {
         document.addEventListener('keydown', event => {
+            this.context = new (window.AudioContext || window.webkitAudioContext)();
             if (event.repeat) { return }
             let pressedKey = event.key
             this.props.keys.forEach(key => {

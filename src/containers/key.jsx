@@ -6,33 +6,29 @@ import Sound from '../sound.js';
 class Key extends Component {
 
     handleClick = () => {
-        // recuperer le canvas depuis le store (passé en props)
-        let note = new Sound(this.props.context, this.props.canvas);
-        
+        this.context = new (window.AudioContext || window.webkitAudioContext)();
+        let note = new Sound(this.context, this.props.canvas);
+            
         let frequency = this.props.frequency;
         let waveform = this.props.waveform;
         let cutoff = this.props.cutoff;
         let envelope = this.props.envelope;
-        
-
+            
         note.play(frequency, waveform, cutoff, envelope);
-        
-
+            
         let clickedNote = document.getElementById(this.props.note)
         clickedNote.classList.add('active');
         setTimeout(function(){
             clickedNote.classList.remove('active');
-            note.stop()}, 500);
+            note.stop();
+        }, 500);
     }
-
 
     render() {
         return(
             <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}></div>
         )
     }
-
-
 }
 
 function mapStateToProps(state) { 

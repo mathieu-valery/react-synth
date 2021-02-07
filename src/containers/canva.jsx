@@ -9,9 +9,11 @@ class Canva extends Component {
     
     render() {
         return(
-            <canvas id="canvas" width="300" height="300">
-            Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
-            </canvas>
+            <div className="canvas">
+                <canvas id="canvas" width="300" height="300">
+                Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+                </canvas>
+            </div>
         )
     }
 

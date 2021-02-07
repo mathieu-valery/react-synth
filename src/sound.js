@@ -66,10 +66,14 @@ class Sound {
       
       this.gainNode.gain.setTargetAtTime(0, currentTime, this.envelope.release + this.easing)
     
-      setTimeout(() => {
+    
+      setTimeout(() => { //CAUSES MEMORY LEAKS IF TOO MANY NOTES ARE PLAYED -- USE Promise ??
+        this.oscillator.stop();
         this.oscillator.disconnect();
-      }, 5000)
-      
+        console.log('disconnected')
+      }, 10000)
     }
+    
 }
+
 export default Sound;
