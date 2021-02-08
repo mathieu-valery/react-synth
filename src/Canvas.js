@@ -29,11 +29,11 @@ export default class Canvas {
         this.analyser.getFloatTimeDomainData(this.tableauDonnees)
 
       
-        this.contexteCanvas.fillStyle = `rgb(200, 200, 200)`;
+        this.contexteCanvas.fillStyle = `rgb(255, 255, 255)`;
 
         this.contexteCanvas.fillRect(0, 0, this.WIDTH, this.HEIGHT);
         this.contexteCanvas.lineWidth = 2;
-        this.contexteCanvas.strokeStyle = `rgb(0,0,0)`;
+        this.contexteCanvas.strokeStyle = `rgb(0,0,0})`;
 
         this.contexteCanvas.beginPath();
 

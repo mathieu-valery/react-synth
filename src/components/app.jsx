@@ -12,7 +12,9 @@ const App = () => {
   return (
     
     <div className="app">
-      <h1>🎶 Amazing Synthetiser 🎶</h1>
+      <div className='title'>
+        <h1>🎶 Amazing Synthetiser 🎶</h1>
+      </div>
       <div className="controls">
         <WaveformButtons/>
         <LowPassFilter/>

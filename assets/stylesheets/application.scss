@@ -4,11 +4,21 @@ body {
 .app {
   padding-top: 20px;
   padding-bottom: 20px;
-  // background-color: #16697a;
+  background: linear-gradient(#c54f4f, #bf69e7);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 h1 {
   text-align: center;
+  padding: 1vw;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
 }
 
 .keyboard {
@@ -58,16 +68,21 @@ h1 {
 }
 
 .button {
-  padding: 2vw;
+  padding: 1vw;
   background-color: black;
   color: white;
   margin: 1vh;
   text-align: center;
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .button.active {
-  border: 5px solid red;
+  background-color: #005CC8;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.25s ease-out;
+  
 }
 
 // input[type=range] {
