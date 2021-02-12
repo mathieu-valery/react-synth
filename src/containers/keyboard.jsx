@@ -4,9 +4,21 @@ import Key from './key.jsx';
 import Sound from '../sound.js';
 
 class Keyboard extends Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            context: {}
+        }
+    }
+   
+    componentWillMount() {
+        let context = new (window.AudioContext || window.webkitAudioContext)();
+        this.setState({
+            context: context
+        })
+    }
+
     render() {
-        
         return(
             <div className='keyboard'>
                 {this.props.keys.map(({ note, color, frequency, key }) => <Key  note={note} color={color} frequency={frequency} key={key} />)}
@@ -15,17 +27,17 @@ class Keyboard extends Component {
     }
 
     componentDidMount() {
-        document.addEventListener('keydown', event => {
-            this.context = new (window.AudioContext || window.webkitAudioContext)();
+        document.addEventListener('keypress', event => {
             if (event.repeat) { return }
             let pressedKey = event.key
             this.props.keys.forEach(key => {
                 if (pressedKey == key.key) {
-                    let note = new Sound(this.context, this.props.canvas);
+                    let note = new Sound(this.state.context, this.props.canvas);
                     let frequency = key.frequency;
                     let waveform = this.props.waveform;
                     let cutoff = this.props.cutoff;
                     let envelope = this.props.envelope;
+                    console.log(this.state.context)
                     note.play(frequency, waveform, cutoff, envelope);
                     
                     let playedNote = document.getElementById(key.note);
