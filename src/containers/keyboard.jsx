@@ -21,7 +21,7 @@ class Keyboard extends Component {
     render() {
         return(
             <div className='keyboard'>
-                {this.props.keys.map(({ note, color, frequency, key }) => <Key  note={note} color={color} frequency={frequency} key={key} />)}
+                {this.props.keys.map(({ note, color, frequency, key }) => <Key  note={note} color={color} frequency={frequency} key={key} context={this.state.context} keypad={key}/>)}
             </div>
         )
     }
@@ -37,7 +37,6 @@ class Keyboard extends Component {
                     let waveform = this.props.waveform;
                     let cutoff = this.props.cutoff;
                     let envelope = this.props.envelope;
-                    console.log(this.state.context)
                     note.play(frequency, waveform, cutoff, envelope);
                     
                     let playedNote = document.getElementById(key.note);

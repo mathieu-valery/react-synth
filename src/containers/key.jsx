@@ -6,7 +6,7 @@ import Sound from '../sound.js';
 class Key extends Component {
 
     handleClick = () => {
-        this.context = new (window.AudioContext || window.webkitAudioContext)();
+        this.context = this.props.context
         let note = new Sound(this.context, this.props.canvas);
             
         let frequency = this.props.frequency;
@@ -26,7 +26,9 @@ class Key extends Component {
 
     render() {
         return(
-            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}></div>
+            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}>
+                <span>{this.props.keypad}</span>
+            </div>
         )
     }
 }

@@ -43,6 +43,7 @@ class Sound {
 
     play(value, waveform, cutoff, envelope) {
         this.timeAtStart = this.context.currentTime;
+        console.log('time at start: ' + this.timeAtStart);
         this.envelope.attack = envelope.attack;
         this.envelope.decay = envelope.decay;
         this.envelope.sustain = envelope.sustain;
@@ -63,23 +64,25 @@ class Sound {
   
     stop() {
       this.timeAtRelease = this.context.currentTime;
-      console.log('time at release' + this.timeAtRelease);
+      
+      console.log('time at release: ' + this.timeAtRelease);
       this.gainNode.gain.cancelAndHoldAtTime(this.timeAtRelease); //compatible uniquement sur chrome :/
       // RECHERCHE d'ALTERNATIVE
       // this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.timeAtRelease);
       // this.gainNode.gain.cancelScheduledValues(this.timeAtRelease);
+      
       this.gainNode.gain.setTargetAtTime(0, this.timeAtRelease, this.envelope.release);
       
-      let timeToStop = this.timeAtStart + this.timeAtRelease + this.envelope.release;
-      console.log('time to stop' + timeToStop);
+      let timeToStop = (this.timeAtRelease + this.envelope.release) - this.timeAtStart;
+      console.log('time at stop ' + timeToStop)
       // this.gainNode.gain.exponentialRampToValueAtTime(0.01, timeToStop)
 
       setTimeout(() => { //ne marche pas si on relache la notependant le temps d'attaque
         this.oscillator.stop();
         this.oscillator.disconnect();
-        console.log('disconnected after ' + timeToStop)
+        console.log('disconnected')
         
-      }, 10000)
+      }, timeToStop*1000 + 500)
 
       // this.oscillator.onended = () => {
       //   this.oscillator.disconnect();

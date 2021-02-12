@@ -8,16 +8,16 @@ import { setCanvas } from '../actions/index';
 class Canva extends Component {
     
     render() {
-        return(
-            <div className="canvas-container">
-                <canvas id="canvas" className='canvas' width="300" height="300">
-                Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
-                </canvas>
-            </div>
-        )
+            return(
+                <div className="canvas-container">
+                    <canvas id="canvas" className='canvas' width="300" height="300">
+                    Désolé, votre navigateur ne prend pas en charge &lt;canvas&gt;.
+                    </canvas>
+                </div>
+            )
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const canvas = new Canvas()
         this.props.setCanvas(canvas);
 

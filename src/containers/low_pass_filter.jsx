@@ -13,7 +13,8 @@ class LowPassFilter extends Component {
         return(
             <div className="filter">
                 <label htmlFor="filter">Low Pass Filter</label>
-                <input type="range" id="filter" name="filter" min="0" max="1600" step="100" onChange={this.handleChange}></input>
+                <input type="range" className="pointer" id="filter" name="filter" min="0" max="1600" step="50" onChange={this.handleChange}></input>
+                <span>Cutoff: {this.props.cutoff} Hz</span>
             </div>
         )
     }

@@ -18,23 +18,27 @@ class ADSR extends Component {
             <div className="ADSR">
              
                 <div className="envelope-range">
-                    <input className="vertical" type="range" id="attack" name="attack" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+                    <input className="vertical pointer" type="range" id="attack" name="attack" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
                     <label htmlFor="attack">Attack</label>
+                    <span>{this.props.envelope.attack} s</span>
                 </div>
 
                 <div className="envelope-range">
-                    <input className="vertical" type="range" id="decay" name="decay" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                    <input className="vertical pointer" type="range" id="decay" name="decay" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
                     <label htmlFor="decay">Decay</label>
+                    <span>{this.props.envelope.decay} s</span>
                 </div>
 
                 <div className="envelope-range">
-                    <input className="vertical" type="range" id="sustain" name="sustain" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
+                    <input className="vertical pointer" type="range" id="sustain" name="sustain" min="0" max="1" step="0.01" onChange={this.handleChange}></input>
                     <label htmlFor="sustain">Sustain</label>
+                    <span>{this.props.envelope.sustain}</span>
                 </div>
 
                 <div className="envelope-range">
-                    <input className="vertical" type="range" id="release" name="release" min="0" max="2" step="0.02" onChange={this.handleChange}></input>
+                    <input className="vertical pointer" type="range" id="release" name="release" min="0.02" max="2" step="0.02" onChange={this.handleChange}></input>
                     <label htmlFor="release">Release</label>
+                    <span>{this.props.envelope.release} s</span>
                 </div>
                
             </div>
@@ -51,7 +55,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) { 
     return {
-        cutoff: state.cutoff 
+        cutoff: state.cutoff,
+        envelope: state.envelope 
     };
 };
 

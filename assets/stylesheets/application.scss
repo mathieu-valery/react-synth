@@ -4,6 +4,7 @@ body {
 .app {
   padding-top: 20px;
   padding-bottom: 20px;
+  min-height: 100vh;
   background: linear-gradient(#c54f4f, #bf69e7);
 }
 
@@ -29,7 +30,20 @@ h1 {
 .key {
   height: calc(var(--width) * 4);
   width: var(--width);
+  display: flex;
 }
+
+.white span {
+  padding-top: calc(var(--width) * 3.6);
+  padding-left: 10px;
+}
+
+.black span {
+  padding-top: calc(var(--width) * 3.4);
+  padding-left: 10px;
+  color: white;
+}
+
 .white {
   --width: 5vw;
   background-color: white;
@@ -47,7 +61,6 @@ h1 {
   margin-right: calc(var(--width) / -2);
   margin-left: calc(var(--width) / -2);
   z-index: 2;
-
 }
 
 .black.active {
@@ -75,6 +88,7 @@ h1 {
   text-align: center;
   border-radius: 10px;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .button.active {
@@ -110,7 +124,6 @@ h1 {
 .filter {
   width: 20vw;
   padding: 20px 0px 20px 0px;
-  
 }
 
 .ADSR {
@@ -120,6 +133,7 @@ h1 {
 .envelope-range {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .envelope-range label {
@@ -133,6 +147,10 @@ h1 {
     -ms-transform: rotate(270deg);
     -o-transform: rotate(270deg);
     transform: rotate(270deg);
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .canvas-container {
@@ -152,5 +170,12 @@ h1 {
   }
   .black {
       --width: 5vw;
+  }
+} 
+
+@media screen and (max-width: 750px) {
+  .envelope-range label {
+    text-align: center;
+    padding-top: 50px;
   }
 } 
