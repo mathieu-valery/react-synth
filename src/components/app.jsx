@@ -20,9 +20,10 @@ const App = () => {
         <LowPassFilter/>
         <ADSR/>
       </div>
-      <Keyboard keys={keys} />
-      <Canva/>
-      
+      <div className="keyboard-container">
+        <Keyboard keys={keys} />
+        <Canva/>
+      </div>
       
       
     

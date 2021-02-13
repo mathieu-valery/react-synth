@@ -6,6 +6,8 @@ body {
   padding-bottom: 20px;
   min-height: 100vh;
   background: linear-gradient(#c54f4f, #bf69e7);
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .title {
@@ -20,6 +22,12 @@ h1 {
   background-color: black;
   color: white;
   border-radius: 10px;
+}
+
+.keyboard-container {
+  display: flex;
+  justify-content: space-around;
+
 }
 
 .keyboard {
@@ -71,8 +79,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  margin-bottom: 20px;
 }
 
 .buttons {
@@ -81,7 +88,7 @@ h1 {
 }
 
 .button {
-  padding: 1vw;
+  padding: 0.7vw;
   background-color: black;
   color: white;
   margin: 1vh;
@@ -153,15 +160,17 @@ h1 {
   cursor: pointer;
 }
 
+
 .canvas-container {
   display: flex;
   justify-content: center;
-  padding-top: 5vh;
+
   
 }
 
 .canvas {
   border: 1px solid black;
+  background-color: white;
 }
 
 @media screen and (max-width: 1025px) {

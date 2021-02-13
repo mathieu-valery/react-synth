@@ -82,7 +82,7 @@ class Sound {
         this.oscillator.disconnect();
         console.log('disconnected')
         
-      }, timeToStop*1000 + 500)
+      }, 10000)
 
       // this.oscillator.onended = () => {
       //   this.oscillator.disconnect();
