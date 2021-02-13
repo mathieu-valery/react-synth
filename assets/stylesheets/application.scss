@@ -177,8 +177,17 @@ h1 {
   .white {
       --width: 8vw;
   }
+
   .black {
       --width: 5vw;
+  }
+
+  .keyboard-container {
+    flex-direction: column;
+  }
+
+  .keyboard {
+    margin-bottom: 10px;
   }
 } 
 
