@@ -1,6 +1,8 @@
-# redux-boilerplate
+# react-synth
 
-Simple React + Redux starter with the following config:
+A fun synthetiser made using React + Web Audi API.
+
+I used Le Wagon React boilerplate with the following config:
 
 - React, ReactDOM
 - Redux, React-Redux
