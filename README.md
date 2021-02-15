@@ -10,7 +10,7 @@ Features implemented :
 * volume enveloppe
 * volume visualisation
 
-User can play a note by pressing the corresponding key on your computer keyboard or just by clicking the keyboard. 
+User can play a note by pressing the corresponding key on the computer keyboard or just by clicking the keyboard. 
 
 ![](app.png)
 
