@@ -26,7 +26,7 @@ class Key extends Component {
 
     render() {
         return(
-            <div className={`${'key'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}>
+            <div className={`${'key'} ${'pointer'} ${this.props.color}`} key={this.props.note} id={this.props.note} onClick={this.handleClick} data-key={this.props.key}>
                 <span>{this.props.keypad}</span>
             </div>
         )

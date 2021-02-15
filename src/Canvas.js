@@ -22,7 +22,7 @@ export default class Canvas {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    render(delta) {
+    render() {
         this.rafID = requestAnimationFrame(this.render.bind(this))
         
         this.analyser.getByteTimeDomainData(this.tableauDonnees)

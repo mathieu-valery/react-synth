@@ -21,7 +21,7 @@ const App = () => {
         <ADSR/>
       </div>
       <div className="keyboard-container">
-        <Keyboard keys={keys} />
+        <Keyboard keys={keys}/>
         <Oscilloscope/>
       </div>
       

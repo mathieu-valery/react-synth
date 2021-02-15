@@ -75,9 +75,9 @@ class Sound {
 
       this.gainNode.gain.setTargetAtTime(0, this.timeAtRelease, this.envelope.release);
       
-      let timeToStop = (this.timeAtRelease + this.envelope.release) - this.timeAtStart;
+      // let timeToStop = (this.timeAtRelease + this.envelope.release) - this.timeAtStart;
 
-      setTimeout(() => { //ne marche pas si on relache la notependant le temps d'attaque
+      setTimeout(() => { 
         this.oscillator.stop();
         this.oscillator.disconnect();
         
