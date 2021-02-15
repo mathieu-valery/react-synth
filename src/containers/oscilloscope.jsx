@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { setCanvas } from '../actions/index';
 
 
-class Canva extends Component {
+class Oscilloscope extends Component {
     
     render() {
             return(
@@ -20,13 +20,6 @@ class Canva extends Component {
     componentWillMount() {
         const canvas = new Canvas()
         this.props.setCanvas(canvas);
-
-        // this.canvas = document.getElementById('canvas');
-
-        // this.WIDTH = this.canvas.width;
-        // this.HEIGHT = this.canvas.height;
-        // this.contexteCanvas = canvas.getContext('2d');
-
     }
 }
 
@@ -43,4 +36,4 @@ function mapStateToProps(state) {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Canva);
+export default connect(mapStateToProps, mapDispatchToProps)(Oscilloscope);
