@@ -13,7 +13,6 @@ export default class Canvas {
 
         this.WIDTH = this.canvas.width;
         this.HEIGHT = this.canvas.height;
-
         if (this.rafID) window.cancelAnimationFrame(this.rafID)
         this.render()
 
@@ -25,9 +24,9 @@ export default class Canvas {
 
     render(delta) {
         this.rafID = requestAnimationFrame(this.render.bind(this))
-
-        this.analyser.getFloatTimeDomainData(this.tableauDonnees)
-
+        
+        this.analyser.getByteTimeDomainData(this.tableauDonnees)
+        
       
         this.contexteCanvas.fillStyle = `rgb(255, 255, 255)`;
 
@@ -37,13 +36,13 @@ export default class Canvas {
 
         this.contexteCanvas.beginPath();
 
-        var largeurSegment = this.WIDTH * 1.0 / this.analyser.fftSize;
+        var largeurSegment = this.WIDTH * 1.0 / this.analyser.frequencyBinCount;
         var x = 0;
 
-        for (var i = 0; i < this.analyser.fftSize; i++) {
+        for (var i = 0; i < this.analyser.frequencyBinCount; i++) {
 
-            var v = this.tableauDonnees[i] * 200;
-            var y = v + this.HEIGHT / 2;
+            var v = this.tableauDonnees[i]/ 128 ; // var v = this.tableauDonnees[i] * 200 POUR un tableau en float 32
+            var y = (v * this.HEIGHT) / 2;
 
             if (i === 0) {
                 this.contexteCanvas.moveTo(x, y);

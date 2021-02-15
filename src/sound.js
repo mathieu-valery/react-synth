@@ -34,8 +34,9 @@ class Sound {
       this.compressor.connect(this.analyser);
 
       this.analyser.fftSize = 2048;
-      this.tailleMemoireTampon = this.analyser.fftSize;
-      this.tableauDonnees = new Float32Array(this.tailleMemoireTampon);
+      this.tailleMemoireTampon = this.analyser.frequencyBinCount;
+      console.log(this.tailleMemoireTampon);
+      this.tableauDonnees = new Uint8Array(this.tailleMemoireTampon);
 
       this.canvas.init(this.analyser, this.tableauDonnees)
 
@@ -43,7 +44,7 @@ class Sound {
 
     play(value, waveform, cutoff, envelope) {
         this.timeAtStart = this.context.currentTime;
-        console.log('time at start: ' + this.timeAtStart);
+        // console.log('time at start: ' + this.timeAtStart);
         this.envelope.attack = envelope.attack;
         this.envelope.decay = envelope.decay;
         this.envelope.sustain = envelope.sustain;
@@ -66,21 +67,19 @@ class Sound {
       this.timeAtRelease = this.context.currentTime;
       
       console.log('time at release: ' + this.timeAtRelease);
-      this.gainNode.gain.cancelAndHoldAtTime(this.timeAtRelease); //compatible uniquement sur chrome :/
-      // RECHERCHE d'ALTERNATIVE
-      // this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.timeAtRelease);
-      // this.gainNode.gain.cancelScheduledValues(this.timeAtRelease);
-      
+      //this.gainNode.gain.cancelAndHoldAtTime(this.timeAtRelease); //compatible uniquement sur chrome :/
+
+      // RECHERCHE d'ALTERNATIVE 
+      this.gainNode.gain.cancelScheduledValues(this.timeAtRelease);
+      this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.timeAtRelease);// ne marche pas bien sur Firefox 
+
       this.gainNode.gain.setTargetAtTime(0, this.timeAtRelease, this.envelope.release);
       
       let timeToStop = (this.timeAtRelease + this.envelope.release) - this.timeAtStart;
-      console.log('time at stop ' + timeToStop)
-      // this.gainNode.gain.exponentialRampToValueAtTime(0.01, timeToStop)
 
       setTimeout(() => { //ne marche pas si on relache la notependant le temps d'attaque
         this.oscillator.stop();
         this.oscillator.disconnect();
-        console.log('disconnected')
         
       }, 10000)
 
