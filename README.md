@@ -1,5 +1,7 @@
 # react-synth
 
+App can be found at => https://mathieu-react-synth.herokuapp.com/
+
 A fun synthetiser made using React + Web Audi API.
 
 Features implemented : 
