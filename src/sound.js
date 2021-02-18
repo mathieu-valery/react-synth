@@ -35,7 +35,6 @@ class Sound {
 
       this.analyser.fftSize = 2048;
       this.tailleMemoireTampon = this.analyser.frequencyBinCount;
-      console.log(this.tailleMemoireTampon);
       this.tableauDonnees = new Uint8Array(this.tailleMemoireTampon);
 
       this.canvas.init(this.analyser, this.tableauDonnees)
@@ -44,7 +43,6 @@ class Sound {
 
     play(value, waveform, cutoff, envelope) {
         this.timeAtStart = this.context.currentTime;
-        // console.log('time at start: ' + this.timeAtStart);
         this.envelope.attack = envelope.attack;
         this.envelope.decay = envelope.decay;
         this.envelope.sustain = envelope.sustain;
@@ -66,7 +64,7 @@ class Sound {
     stop() {
       this.timeAtRelease = this.context.currentTime;
       
-      console.log('time at release: ' + this.timeAtRelease);
+      
       //this.gainNode.gain.cancelAndHoldAtTime(this.timeAtRelease); //compatible uniquement sur chrome :/
 
       // RECHERCHE d'ALTERNATIVE 
@@ -75,8 +73,6 @@ class Sound {
 
       this.gainNode.gain.setTargetAtTime(0, this.timeAtRelease, this.envelope.release);
       
-      // let timeToStop = (this.timeAtRelease + this.envelope.release) - this.timeAtStart;
-
       setTimeout(() => { 
         this.oscillator.stop();
         this.oscillator.disconnect();
