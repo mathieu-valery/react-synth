@@ -1,6 +1,18 @@
 # react-synth
 
+App can be found at => https://mathieu-react-synth.herokuapp.com/
+
 A fun synthetiser made using React + Web Audi API.
+
+Features implemented : 
+* waveform selection, 
+* low pass filter
+* volume enveloppe
+* volume visualisation
+
+User can play a note by pressing the corresponding key on the computer keyboard or just by clicking the keyboard. 
+
+![](app.png)
 
 I used Le Wagon React boilerplate with the following config:
 
