@@ -17,7 +17,12 @@ class WaveformButton extends Component {
         <div className="button" id={this.props.name} onClick={this.handleClick}>{this.props.name}</div>
         )
     }
+
+    componentDidMount() {
+        document.getElementById('sine').classList.add('active');
+    }
 }
+
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(

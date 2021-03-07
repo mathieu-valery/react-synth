@@ -173,6 +173,8 @@ h1 {
   background-color: white;
 }
 
+
+
 @media screen and (max-width: 1025px) {
   .white {
       --width: 10.4vw;
@@ -189,6 +191,8 @@ h1 {
   .keyboard {
     margin-bottom: 10px;
   }
+
+
 } 
 
 @media screen and (max-width: 750px) {
@@ -197,3 +201,56 @@ h1 {
     padding-top: 50px;
   }
 } 
+
+@media screen and (max-width: 415px) {
+  .app {
+    font-size: 12px;
+  }
+
+  .title {
+    margin-bottom: 10px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .buttons {
+    flex-direction: row;
+  }
+
+  .button {
+    width: 60px;
+    padding: 5px;
+  }
+
+  .filter {
+    flex-basis: 60%;
+    padding: 10px 0px 10px 0px;
+  }
+
+  .ADSR {
+    margin-top: 30px;
+  }
+
+  .envelope-range label {
+    padding-top: 33px;
+  }
+
+  .keyboard {
+    font-size: 0px;
+  }
+
+  .canvas {
+    width: 200px;
+    height: 200px;
+  }
+} 
+
+
+
+
