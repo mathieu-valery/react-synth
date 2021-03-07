@@ -13,6 +13,10 @@ class WaveformButtons extends Component {
         </div>
         )
     }
+
+    componentDidMount() {
+        document.getElementById('sine').classList.add('active');
+    }
 }
 
 export default WaveformButtons;
