@@ -1,7 +1,7 @@
 import React from 'react';
 import Keyboard from '../containers/keyboard.jsx';
 import WaveformButtons from '../containers/waveform_buttons.jsx';
-import LowPassFilter from '../containers/low_pass_filter.jsx';
+import LPFKnob from '../containers/LPF_knob.jsx';
 import ADSR from '../containers/ADSR.jsx'
 import Oscilloscope from '../containers/oscilloscope.jsx';
 import keys from './keys';
@@ -17,7 +17,7 @@ const App = () => {
       </div>
       <div className="controls">
         <WaveformButtons/>
-        <LowPassFilter/>
+        <LPFKnob/>
         <ADSR/>
       </div>
       <div className="keyboard-container">

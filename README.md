@@ -23,3 +23,7 @@ I used Le Wagon React boilerplate with the following config:
 - Bootstrap (css only, loaded from a cdn in `index.html`)
 - work with `.js` or `.jsx` files
 - main `application.scss` stylesheet is imported in `index.js` as a module to enjoy hot reloading
+
+# run the project
+
+local : `npm run serve`

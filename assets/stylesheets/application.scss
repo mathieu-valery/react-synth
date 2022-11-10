@@ -249,7 +249,60 @@ h1 {
     width: 200px;
     height: 200px;
   }
-} 
+}
+
+.knob-button {
+  height: 12em;
+  width: 12em;
+  transform: rotate(0);
+  transform-origin: center;
+}
+
+.knob-circle {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.knob-stroke-container {
+  height: 50%;
+  width: 20px;
+  position: absolute;
+  left: calc(50% - 10px);
+  top: 50%;
+  transform-origin: top;
+  transform: rotate(180deg);
+  display: flex;
+}
+
+.knob-stroke {
+  width: 100%;
+  background: black;
+  height: 70%;
+  transform: rotate(0deg);
+  align-self: flex-end;
+}
+
+.knob-small {
+  height: 10%;
+}
+
+.knob-rotate-120 {
+  transform: rotate(120deg);
+}
+
+.knob-rotate-150 {
+  transform: rotate(150deg);
+}
+
+.knob-rotate-210 {
+  transform: rotate(210deg);
+}
+
+.knob-rotate-240 {
+  transform: rotate(240deg);
+}
 
 
 
