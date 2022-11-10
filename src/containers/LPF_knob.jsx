@@ -21,18 +21,25 @@ class LPFKnob extends Component {
     button.addEventListener("dragend", this.toggleIsTurnable);
     button.addEventListener("mousemove", e => this.rotateButton(e));
     button.addEventListener("dragover", e => this.rotateButton(e));
+
+    button.addEventListener("touchstart", this.toggleIsTurnable);
+    button.addEventListener("touchmove", e => this.rotateButton(e));
+    button.addEventListener("touchend", this.toggleIsTurnable);
   }
 
   rotateButton(e) {
+    e.preventDefault();
     const button = document.querySelector(".knob-button");
-
     const buttonBox = button.getBoundingClientRect();
     const centerX = buttonBox.left + buttonBox.width/2 - window.pageXOffset;
     const centerY = buttonBox.top + buttonBox.height/2 - window.pageYOffset;
+    const touchLocation = e.targetTouches ? e.targetTouches[0] : null;
+    const clientX = e.clientX || touchLocation.clientX;
+    const clientY = e.clientY || touchLocation.clientY;
 
     let value = 0;
     if (this.state.isTurnTable) {
-      const radians = Math.atan2(e.clientX - centerX, e.clientY - centerY);
+      const radians = Math.atan2(clientX - centerX, clientY - centerY);
       let degree = (radians * (180 / Math.PI) * -1) + 180;
       if (degree >= 135 && degree <= 180) {
         degree = 135;
