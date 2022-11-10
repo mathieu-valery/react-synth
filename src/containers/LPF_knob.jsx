@@ -66,10 +66,10 @@ class LPFKnob extends Component {
         <div className="knob-button">
           <div className="knob-circle"/>
           <div className="knob-stroke-container"><div className="knob-stroke"/></div>
-          <div className="knob-stroke-container rotate-120"><div className="knob-stroke small"/></div>
-          <div className="knob-stroke-container rotate-150"><div className="knob-stroke small"/></div>
-          <div className="knob-stroke-container rotate-210"><div className="knob-stroke small"/></div>
-          <div className="knob-stroke-container rotate-240"><div className="knob-stroke small"/></div>
+          <div className="knob-stroke-container knob-rotate-120"><div className="knob-stroke knob-small"/></div>
+          <div className="knob-stroke-container knob-rotate-150"><div className="knob-stroke knob-small"/></div>
+          <div className="knob-stroke-container knob-rotate-210"><div className="knob-stroke knob-small"/></div>
+          <div className="knob-stroke-container knob-rotate-240"><div className="knob-stroke knob-small"/></div>
         </div>
         <p className="knob-label"><strong>Cutoff: </strong>{this.props.cutoff} Hz</p>
       </div>

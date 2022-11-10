@@ -289,13 +289,14 @@ h1 {
 .knob-stroke {
   width: 100%;
   background: black;
-  height: 70%;
+  height: 85%;
   transform: rotate(0deg);
   align-self: flex-end;
 }
 
 .knob-small {
   height: 10%;
+  width: 25%;
 }
 
 .knob-rotate-120 {
