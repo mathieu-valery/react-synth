@@ -58,17 +58,20 @@ class LPFKnob extends Component {
     ));
   }
 
-  normalize (val, max, min, newMax) { return ((val - min) / (max - min) * newMax); }
+  normalize (val, max, min, newMax) { return Math.floor(((val - min) / (max - min) * newMax)); }
 
   render() {
     return(
-      <div class='knob-button'>
-        <div class="knob-circle"></div>
-        <div class="knob-stroke-container"><div class='knob-stroke'></div></div>
-        <div class="knob-stroke-container rotate-120"><div class='knob-stroke small'></div></div>
-        <div class="knob-stroke-container rotate-150"><div class='knob-stroke small'></div></div>
-        <div class="knob-stroke-container rotate-210"><div class='knob-stroke small'></div></div>
-        <div class="knob-stroke-container rotate-240"><div class='knob-stroke small'></div></div>
+      <div className="knob-container">
+        <div className="knob-button">
+          <div className="knob-circle"/>
+          <div className="knob-stroke-container"><div className="knob-stroke"/></div>
+          <div className="knob-stroke-container rotate-120"><div className="knob-stroke small"/></div>
+          <div className="knob-stroke-container rotate-150"><div className="knob-stroke small"/></div>
+          <div className="knob-stroke-container rotate-210"><div className="knob-stroke small"/></div>
+          <div className="knob-stroke-container rotate-240"><div className="knob-stroke small"/></div>
+        </div>
+        <p className="knob-label"><strong>Cutoff: </strong>{this.props.cutoff} Hz</p>
       </div>
     );
   }
@@ -83,7 +86,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    utoff: state.cutoff
+    cutoff: state.cutoff
   };
 };
 

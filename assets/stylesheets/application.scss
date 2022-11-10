@@ -251,6 +251,16 @@ h1 {
   }
 }
 
+.knob-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.knob-label {
+  padding-top: 10px;
+}
+
 .knob-button {
   height: 12em;
   width: 12em;
