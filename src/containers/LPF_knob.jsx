@@ -23,10 +23,8 @@ class LPFKnob extends Component {
     window.addEventListener("mousedown", this.setClickedParent);
 
     window.addEventListener("mouseup", e => this.handleMouseUp(e));
-    window.addEventListener("dragend", e => this.handleMouseUp(e));
 
     button.addEventListener("mousemove", e => this.rotateButton(e));
-    button.addEventListener("dragover", e => this.rotateButton(e));
 
     button.addEventListener("touchstart", this.toggleIsTurnable);
     button.addEventListener("touchmove", e => this.rotateButton(e));
@@ -41,7 +39,9 @@ class LPFKnob extends Component {
     // not ideal, queryselector fired at every mouseup, need to find alternative
     const knobCircle = document.querySelector('.knob-circle');
     const knobStrokeContainer = document.querySelector('.knob-stroke-container');
-    if (this.state.clickedParent === knobCircle || this.state.clickedParent === knobStrokeContainer) {
+    const knobButton = document.querySelector('.knob-button');
+
+    if (this.state.clickedParent === knobCircle || this.state.clickedParent === knobStrokeContainer || this.state.clickedParent === knobButton) {
       this.toggleIsTurnable();
     }
   }

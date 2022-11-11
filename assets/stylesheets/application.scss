@@ -188,6 +188,8 @@ h1 {
   width: 12em;
   transform: rotate(0);
   transform-origin: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .knob-circle {
