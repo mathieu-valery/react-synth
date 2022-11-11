@@ -8,8 +8,11 @@ class LPFKnob extends Component {
     super(props);
     this.toggleIsTurnable = this.toggleIsTurnable.bind(this);
     this.rotateButton = this.rotateButton.bind(this);
+    this.setClickedParent = this.setClickedParent.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
     this.state = {
-      isTurnTable: false
+      isTurnTable: false,
+      clickedParent: {}
     };
   }
 
@@ -17,14 +20,40 @@ class LPFKnob extends Component {
     const button = document.querySelector(".knob-button");
 
     button.addEventListener("mousedown", this.toggleIsTurnable);
-    button.addEventListener("mouseup", this.toggleIsTurnable);
-    button.addEventListener("dragend", this.toggleIsTurnable);
+    window.addEventListener("mousedown", this.setClickedParent);
+
+    window.addEventListener("mouseup", e => this.handleMouseUp(e));
+    window.addEventListener("dragend", e => this.handleMouseUp(e));
+
     button.addEventListener("mousemove", e => this.rotateButton(e));
     button.addEventListener("dragover", e => this.rotateButton(e));
 
     button.addEventListener("touchstart", this.toggleIsTurnable);
     button.addEventListener("touchmove", e => this.rotateButton(e));
     button.addEventListener("touchend", this.toggleIsTurnable);
+  }
+
+  setClickedParent(e) {
+    this.setState({clickedParent: e.target.parentElement})
+    console.log(e.target.parentElement)
+  }
+
+  handleMouseUp() {
+    // not ideal, queryselector fired at every mouseup, need to find alternative
+    const knobCircle = document.querySelector('.knob-circle');
+    const knobStrokeContainer = document.querySelector('.knob-stroke-container');
+    if (this.state.clickedParent === knobCircle || this.state.clickedParent === knobStrokeContainer) {
+      this.toggleIsTurnable();
+    }
+  }
+
+  toggleIsTurnable() {
+    console.log('toggle')
+    this.setState(state => (
+      {
+        isTurnTable: !state.isTurnTable
+      }
+    ));
   }
 
   rotateButton(e) {
@@ -57,26 +86,21 @@ class LPFKnob extends Component {
     }
   }
 
-  toggleIsTurnable() {
-    this.setState(state => (
-      {
-        isTurnTable: !state.isTurnTable
-      }
-    ));
-  }
-
   normalize (val, max, min, newMax) { return Math.floor(((val - min) / (max - min) * newMax)); }
 
   render() {
     return(
       <div className="knob-container">
         <div className="knob-button">
-          <div className="knob-circle"/>
-          <div className="knob-stroke-container"><div className="knob-stroke"/></div>
-          <div className="knob-stroke-container knob-rotate-120"><div className="knob-stroke knob-small"/></div>
-          <div className="knob-stroke-container knob-rotate-150"><div className="knob-stroke knob-small"/></div>
-          <div className="knob-stroke-container knob-rotate-210"><div className="knob-stroke knob-small"/></div>
-          <div className="knob-stroke-container knob-rotate-240"><div className="knob-stroke knob-small"/></div>
+          <div className="knob-circle">
+
+            <div className="knob-stroke-container"><div className="knob-stroke"/></div>
+            <div className="knob-stroke-container knob-rotate-120"><div className="knob-stroke knob-small"/></div>
+            <div className="knob-stroke-container knob-rotate-150"><div className="knob-stroke knob-small"/></div>
+            <div className="knob-stroke-container knob-rotate-210"><div className="knob-stroke knob-small"/></div>
+            <div className="knob-stroke-container knob-rotate-240"><div className="knob-stroke knob-small"/></div>
+
+          </div>
         </div>
         <p className="knob-label"><strong>Cutoff: </strong>{this.props.cutoff} Hz</p>
       </div>
