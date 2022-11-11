@@ -35,7 +35,6 @@ class LPFKnob extends Component {
 
   setClickedParent(e) {
     this.setState({clickedParent: e.target.parentElement})
-    console.log(e.target.parentElement)
   }
 
   handleMouseUp() {
@@ -48,7 +47,6 @@ class LPFKnob extends Component {
   }
 
   toggleIsTurnable() {
-    console.log('toggle')
     this.setState(state => (
       {
         isTurnTable: !state.isTurnTable
