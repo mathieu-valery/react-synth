@@ -6,7 +6,7 @@ A fun synthetiser made using React + Web Audi API.
 
 Features implemented : 
 * waveform selection, 
-* low pass filter
+* low pass filter (2022 update: Knob button)
 * volume enveloppe
 * volume visualisation
 
