@@ -1,4 +1,10 @@
 {
+  "name": "mathieu-react-synth",
+  "description": "Amazing Synthetiser",
+  "version": "1.2.0",
+  "engines": {
+    "node": "11.15.1"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-core": "^6.26.0",
