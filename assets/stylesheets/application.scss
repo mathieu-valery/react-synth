@@ -173,84 +173,6 @@ h1 {
   background-color: white;
 }
 
-
-
-@media screen and (max-width: 1025px) {
-  .white {
-      --width: 10.4vw;
-  }
-
-  .black {
-      --width: 7vw;
-  }
-
-  .keyboard-container {
-    flex-direction: column;
-  }
-
-  .keyboard {
-    margin-bottom: 10px;
-  }
-
-
-} 
-
-@media screen and (max-width: 750px) {
-  .envelope-range label {
-    text-align: center;
-    padding-top: 50px;
-  }
-} 
-
-@media screen and (max-width: 415px) {
-  .app {
-    font-size: 12px;
-  }
-
-  .title {
-    margin-bottom: 10px;
-  }
-
-  .controls {
-    flex-wrap: wrap;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  .buttons {
-    flex-direction: row;
-  }
-
-  .button {
-    width: 60px;
-    padding: 5px;
-  }
-
-  .filter {
-    flex-basis: 60%;
-    padding: 10px 0px 10px 0px;
-  }
-
-  .ADSR {
-    margin-top: 30px;
-  }
-
-  .envelope-range label {
-    padding-top: 33px;
-  }
-
-  .keyboard {
-    font-size: 0px;
-  }
-
-  .canvas {
-    width: 200px;
-    height: 200px;
-  }
-}
-
 .knob-container {
   display: flex;
   flex-direction: column;
@@ -315,6 +237,88 @@ h1 {
   transform: rotate(240deg);
 }
 
+@media screen and (max-width: 1025px) {
+  .white {
+      --width: 10.4vw;
+  }
 
+  .black {
+      --width: 7vw;
+  }
+
+  .keyboard-container {
+    flex-direction: column;
+  }
+
+  .keyboard {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .envelope-range label {
+    text-align: center;
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .app {
+    font-size: 12px;
+  }
+
+  .title {
+    margin-bottom: 10px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .buttons {
+    flex-direction: row;
+  }
+
+  .button {
+    width: 60px;
+    padding: 5px;
+  }
+
+  .filter {
+    flex-basis: 60%;
+    padding: 10px 0px 10px 0px;
+  }
+
+  .ADSR {
+    margin-top: 30px;
+  }
+
+  .envelope-range label {
+    padding-top: 33px;
+  }
+
+  .keyboard {
+    font-size: 0px;
+  }
+
+  .canvas {
+    width: 200px;
+    height: 200px;
+  }
+
+  .knob-button {
+    height: 8em;
+    width: 8em;
+  }
+
+  .knob-stroke-container {
+    width: 10px;
+    left: calc(50% - 4px);
+  }
+}
 
 
