@@ -2,7 +2,7 @@
 
 App can be found at => https://mathieu-react-synth.herokuapp.com/
 
-A fun synthetiser made using React + Web Audi API.
+A fun synthetiser made using React + Web Audio API.
 
 Features implemented : 
 * waveform selection, 
